@@ -9,7 +9,7 @@ import net.minecraft.commands.Commands;
 
 public class StopGameCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
-        dispatcher.register(Commands.literal("stop")
+        dispatcher.register(Commands.literal("ri_stop")
                 .requires(commandSourceStack -> commandSourceStack.hasPermission(2))
                 .executes(StopGameCommand::execute));
     }

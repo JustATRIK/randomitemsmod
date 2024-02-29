@@ -109,7 +109,7 @@ public class GameManager {
         if (winnerNick != null) {
             InformUtils.sendAll(Component.translatable(Component.translatable("ri.message.winner_is").getString() + winnerNick));
             InformUtils.titleAll(ComponentUtils.doRainbowEffect("46eab1d", Component.literal(winnerNick)), TitleType.TITLE);
-            InformUtils.titleAll(Component.translatable("ri.message.winner_is_title"), TitleType.ACTION_BAR);
+            InformUtils.titleAll(Component.translatable("ri.message.winner_is_title"), TitleType.SUB_TITLE);
         } else {
             InformUtils.sendAll(Component.translatable("ri.message.ended_by_admin"));
         }

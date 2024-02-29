@@ -11,7 +11,7 @@ import net.minecraft.network.chat.Component;
 
 public class StartGameCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
-        dispatcher.register(Commands.literal("start")
+        dispatcher.register(Commands.literal("ri_start")
                 .requires(commandSourceStack -> commandSourceStack.hasPermission(2))
                 .then(Commands.argument("item_delay", IntegerArgumentType.integer())
                 .executes((ctx) -> execute(ctx,
