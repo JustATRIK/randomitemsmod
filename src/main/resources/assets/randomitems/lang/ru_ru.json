@@ -5,5 +5,5 @@
   "ri.message.ended_by_admin": "§4Игра была завершена адмионм!",
   "ri.message.left_player": "§eОтслоась всего §c{playerCount} §eигроков!",
   "ri.message.no_spawns": "§c§lПохоже, вы не расттавили спавны! Пожалуйста, расставьте спавны с помощью §a/add_spawn§c, чтобы избужеть багов!",
-  "ri.message.winner_is_title": " легенда!"
+  "ri.message.winner_is_title": "§a легенда!"
 }
