@@ -37,7 +37,7 @@ public class GameManager {
     public final List<Item> items = new ArrayList<>();
     public Scoreboard scoreboard;
     public final List<BlockPos> spawns;
-    private final MainConfig mainConfig;
+    public final MainConfig mainConfig;
 
     public GameManager() {
         ModConfigHolder.addConfigEntry("banned_items", new BannedItemsConfig());
@@ -76,7 +76,7 @@ public class GameManager {
                 TimeUnit.SECONDS.sleep(1);
                 InformUtils.playSoundAll(SoundEvents.GOAT_HORN_SOUND_VARIANTS.get(2).get(), SoundSource.MASTER, new Vec3(0, 0, 0), 100, 100);
                 InformUtils.titleAll(ComponentUtils.doRainbowEffect("46eab1d", Component.literal("Random Items Mod")), TitleType.TITLE);
-                InformUtils.titleAll(Component.literal("§eby WhoAteMyCookies_ and Lonors"), TitleType.SUB_TITLE);
+                InformUtils.titleAll(Component.literal("§eby ATRIK and Lonors"), TitleType.SUB_TITLE);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -107,7 +107,7 @@ public class GameManager {
         gameInstance.stopGame();
         gameInstance = null;
         if (winnerNick != null) {
-            InformUtils.sendAll(Component.translatable(Component.translatable("ri.message.winner_is").getString() + winnerNick));
+            InformUtils.sendAll(Component.translatable("ri.message.winner_is", winnerNick));
             InformUtils.titleAll(ComponentUtils.doRainbowEffect("46eab1d", Component.literal(winnerNick)), TitleType.TITLE);
             InformUtils.titleAll(Component.translatable("ri.message.winner_is_title"), TitleType.SUB_TITLE);
         } else {
@@ -138,8 +138,9 @@ public class GameManager {
         items.removeAll(((BannedItemsConfig) ModConfigHolder.getConfigByName("banned_items")).getData());
     }
 
-    private void initMainConfig() {
+    private void    initMainConfig() {
         mainConfig.setIfNull("enable_border", false);
         mainConfig.setIfNull("border_size", 30);
+        mainConfig.setIfNull("default_items_time", 400);
     }
 }

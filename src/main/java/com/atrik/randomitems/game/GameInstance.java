@@ -93,7 +93,7 @@ public class GameInstance {
     public void serverTick(TickEvent.ServerTickEvent event) {
         if (event.phase.equals(TickEvent.Phase.END)) return;
         bossBar.setProgress(1.0f - (100f / itemsTime * ++ticker) / 100f);
-        bossBar.setName(Component.literal(Component.translatable("ri.boss_bar.name").getString() + ((itemsTime - ticker) / 20 + 1)));
+        bossBar.setName(Component.translatable("ri.boss_bar.name", ((itemsTime - ticker) / 20 + 1)));
         if (itemsTime <= ticker) {
             bossBar.setProgress(0);
             List<Item> items = GameManager.getGameManager().items;
@@ -115,7 +115,7 @@ public class GameInstance {
             ServerLifecycleHooks.getCurrentServer().getPlayerList().respawn(player, false);
             ModPacketHandler.sendS2C(player, new CloseDeathScreenPacket());
 
-            InformUtils.sendAll(Component.literal(Component.translatable("ri.message.player_died").getString().replace("{playerName}", player.getDisplayName().getString())));
+            InformUtils.sendAll(Component.translatable("ri.message.player_died", player.getDisplayName().getString()));
             handlePlayerRemove(player);
         }
     }
@@ -149,7 +149,7 @@ public class GameInstance {
         } else if (livingPlayers.isEmpty()) {
             GameManager.getGameManager().stopGame(null);
         } else {
-            InformUtils.titleAll(Component.literal(Component.translatable("ri.message.left_player").getString().replace("{playerCount}", String.valueOf(livingPlayers.size()))), TitleType.ACTION_BAR);
+            InformUtils.titleAll(Component.translatable("ri.message.left_players", String.valueOf(livingPlayers.size())), TitleType.ACTION_BAR);
         }
     }
 
