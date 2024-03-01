@@ -21,6 +21,6 @@ public class SetItemsTimeDefaultCommand {
     private static int execute(CommandContext<CommandSourceStack> ctx, int time) {
         RandomItemsMod.getLogger().info("Issued command set def items time");
         GameManager.getGameManager().mainConfig.set("default_items_time", (double) time);
-        return 1;
+        return time;
     }
 }
