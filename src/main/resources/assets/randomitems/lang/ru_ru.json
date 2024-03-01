@@ -1,9 +1,9 @@
 {
   "ri.boss_bar.name": "§aСлучайный предмет через %s",
-  "ri.message.winner_is": "§aИгра закончена! Победитель §9§l%s",
-  "ri.message.player_died": "§4%s умер!",
+  "ri.message.winner_is": "§aИгра закончена! Победитель %s",
+  "ri.message.player_died": "%s§4 умер!",
   "ri.message.ended_by_admin": "§4Игра была завершена адмионм!",
-  "ri.message.left_players": "§eОтслоась всего §c%s §eигроков!",
+  "ri.message.left_players": "§eОтслоась всего %s §eигроков!",
   "ri.message.no_spawns": "§c§lПохоже, вы не расставили спавны! Пожалуйста, расставьте спавны с помощью §a/add_spawn§c, чтобы избежать багов!",
   "ri.message.winner_is_title": "§a легенда!"
 }
