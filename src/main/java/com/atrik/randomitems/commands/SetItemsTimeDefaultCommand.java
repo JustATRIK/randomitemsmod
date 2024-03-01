@@ -1,8 +1,6 @@
 package com.atrik.randomitems.commands;
 
 import com.atrik.randomitems.RandomItemsMod;
-import com.atrik.randomitems.config.ModConfigHolder;
-import com.atrik.randomitems.config.configs.MainConfig;
 import com.atrik.randomitems.game.GameManager;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
