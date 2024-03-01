@@ -1,8 +1,8 @@
 {
   "ri.boss_bar.name": "§aRandom item in %s",
-  "ri.message.winner_is": "§aThe game is over! Winner is §9§l%s",
+  "ri.message.winner_is": "§aThe game is over! Winner is %s",
   "ri.message.winner_is_title": "§ais a legend!",
-  "ri.message.player_died": "§4%s just died!",
+  "ri.message.player_died": "%s§4 just died!",
   "ri.message.ended_by_admin": "§4The game was interrupted by the admin!",
   "ri.message.left_players": "§eOnly %s §eplayers left!",
   "ri.message.no_spawns": "§c§lLook like you don't add spawns! Please set spawns by using §a§l/add_spawn§c§l to avoid bugs!"
