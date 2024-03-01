@@ -1,7 +1,6 @@
 package com.atrik.randomitems.config;
 
 import com.atrik.randomitems.RandomItemsMod;
-import com.atrik.randomitems.config.configs.BannedItemsConfig;
 
 import java.util.HashMap;
 import java.util.Map;

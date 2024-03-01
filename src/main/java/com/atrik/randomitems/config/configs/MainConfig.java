@@ -1,22 +1,17 @@
 package com.atrik.randomitems.config.configs;
 
 import com.atrik.randomitems.config.BaseConfig;
-import com.atrik.randomitems.game.GameManager;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.storage.LevelResource;
 import net.minecraftforge.server.ServerLifecycleHooks;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 public class MainConfig extends BaseConfig<Map<String, Object>> {
     private static final Gson cfgGson = new GsonBuilder().setPrettyPrinting().enableComplexMapKeySerialization().create();
@@ -66,6 +61,15 @@ public class MainConfig extends BaseConfig<Map<String, Object>> {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        }
+    }
+
+    public void set(String key, Object value) {
+        data.put(key, value);
+        try {
+            saveAll();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

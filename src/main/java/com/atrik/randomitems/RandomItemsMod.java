@@ -41,6 +41,8 @@ public class RandomItemsMod {
 
         StartGameCommand.register(event.getDispatcher());
         StopGameCommand.register(event.getDispatcher());
+
+        SetItemsTimeDefaultCommand.register(event.getDispatcher());
     }
 
     public static Logger getLogger() {

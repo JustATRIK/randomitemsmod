@@ -10,21 +10,19 @@ import com.mojang.brigadier.context.CommandContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 
-public class StartGameCommand {
+public class SetItemsTimeDefaultCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
-        dispatcher.register(Commands.literal("ri_start")
+        dispatcher.register(Commands.literal("ri_set_def_items_time")
                 .requires(commandSourceStack -> commandSourceStack.hasPermission(2))
-                .executes((ctx) -> execute(ctx,
-                                ((Double) GameManager.getGameManager().mainConfig.getOrThrow("default_items_time")).intValue(), true))
                 .then(Commands.argument("item_delay", IntegerArgumentType.integer())
                 .executes((ctx) -> execute(ctx,
-                    IntegerArgumentType.getInteger(ctx, "item_delay"), true)
+                        IntegerArgumentType.getInteger(ctx, "item_delay"))
                 )));
     }
 
-    private static int execute(CommandContext<CommandSourceStack> ctx, int time, boolean cleanInventories) {
-        RandomItemsMod.getLogger().info("Issued command start");
-        GameManager.getGameManager().startGame(time, cleanInventories, ctx.getSource().getLevel());
+    private static int execute(CommandContext<CommandSourceStack> ctx, int time) {
+        RandomItemsMod.getLogger().info("Issued command set def items time");
+        GameManager.getGameManager().mainConfig.set("default_items_time", (double) time);
         return 1;
     }
 }
