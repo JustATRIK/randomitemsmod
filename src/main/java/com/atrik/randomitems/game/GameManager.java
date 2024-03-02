@@ -89,10 +89,20 @@ public class GameManager {
         if (cleanInventories) {
             RandomItemsMod.getLogger().info("Cleaning inventories");
             ServerLifecycleHooks.getCurrentServer().getPlayerList().getPlayers().forEach(serverPlayer -> {
-                serverPlayer.getInventory().clearContent();
-                serverPlayer.removeAllEffects();
-                serverPlayer.setHealth(serverPlayer.getMaxHealth());
-                serverPlayer.setExperiencePoints(0);
+                if (mainConfig.getBool("clean_inventories")) serverPlayer.getInventory().clearContent();
+                if (mainConfig.getBool("remove_effects")) serverPlayer.removeAllEffects();
+
+                if (mainConfig.getBool("reset_health")) serverPlayer.setHealth(serverPlayer.getMaxHealth());
+
+                if (mainConfig.getBool("reset_food")) {
+                    serverPlayer.getFoodData().setFoodLevel(20);
+                    serverPlayer.getFoodData().setSaturation(0);
+                }
+
+                if (mainConfig.getBool("remove_xp")) {
+                    serverPlayer.setExperiencePoints(0);
+                    serverPlayer.setExperienceLevels(0);
+                }
             });
             RandomItemsMod.getLogger().info("Inventories fully cleaned");
         }
@@ -103,9 +113,7 @@ public class GameManager {
     }
 
     public void stopGame(@Nullable String winnerNick) {
-        MinecraftForge.EVENT_BUS.unregister(gameInstance);
-        gameInstance.stopGame();
-        gameInstance = null;
+        stopGameQuite();
         if (winnerNick != null) {
             InformUtils.sendAll(Component.translatable("ri.message.winner_is", Component.literal("§9§l" + winnerNick)));
             InformUtils.titleAll(ComponentUtils.doRainbowEffect("46eab1d", Component.literal(winnerNick)), TitleType.TITLE);
@@ -113,6 +121,12 @@ public class GameManager {
         } else {
             InformUtils.sendAll(Component.translatable("ri.message.ended_by_admin"));
         }
+    }
+
+    public void stopGameQuite() {
+        MinecraftForge.EVENT_BUS.unregister(gameInstance);
+        gameInstance.stopGame();
+        gameInstance = null;
     }
 
     public void addPos(BlockPos pos) {
@@ -138,9 +152,15 @@ public class GameManager {
         items.removeAll(((BannedItemsConfig) ModConfigHolder.getConfigByName("banned_items")).getData());
     }
 
-    private void    initMainConfig() {
+    private void initMainConfig() {
         mainConfig.setIfNull("enable_border", false);
         mainConfig.setIfNull("border_size", 30);
         mainConfig.setIfNull("default_items_time", 400);
+
+        mainConfig.setIfNull("clear_inventories", true);
+        mainConfig.setIfNull("remove_effects", true);
+        mainConfig.setIfNull("remove_xp", true);
+        mainConfig.setIfNull("reset_health", true);
+        mainConfig.setIfNull("reset_food", true);
     }
 }

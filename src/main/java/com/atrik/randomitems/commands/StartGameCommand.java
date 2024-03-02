@@ -13,7 +13,7 @@ public class StartGameCommand {
         dispatcher.register(Commands.literal("ri_start")
                 .requires(commandSourceStack -> commandSourceStack.hasPermission(2))
                 .executes((ctx) -> execute(ctx,
-                                ((Double) GameManager.getGameManager().mainConfig.getOrThrow("default_items_time")).intValue(), true))
+                                GameManager.getGameManager().mainConfig.getInt("default_items_time"), true))
                 .then(Commands.argument("item_delay", IntegerArgumentType.integer())
                 .executes((ctx) -> execute(ctx,
                     IntegerArgumentType.getInteger(ctx, "item_delay"), true)

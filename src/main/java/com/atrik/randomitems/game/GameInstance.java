@@ -50,7 +50,7 @@ public class GameInstance {
 
         RandomItemsMod.getLogger().info("Initializing new game instance");
 
-        if ((Boolean) mainConfig.getOrThrow("enable_border")) {
+        if (mainConfig.getBool("enable_border")) {
             worldBorderSettings = ServerLifecycleHooks.getCurrentServer().overworld().getWorldBorder().createSettings();
             setupWorldBorders(level);
         }
@@ -167,7 +167,7 @@ public class GameInstance {
     }
 
     public void stopGame() {
-        if ((Boolean) mainConfig.getOrThrow("enable_border")) {
+        if (mainConfig.getBool("enable_border")) {
             ServerLifecycleHooks.getCurrentServer().overworld().getWorldBorder().applySettings(worldBorderSettings);
         }
         bossBar.removeAllPlayers();
@@ -195,7 +195,7 @@ public class GameInstance {
         worldBorder.setWarningBlocks(0);
         worldBorder.setWarningTime(0);
         worldBorder.setSize(Math.max(Math.abs(Collections.min(xPoses)) + Math.abs(Collections.max(xPoses)),
-                Math.abs(Collections.min(zPoses)) + Math.abs(Collections.max(zPoses))) + (double) mainConfig.getOrThrow("border_size"));
+                Math.abs(Collections.min(zPoses)) + Math.abs(Collections.max(zPoses))) + mainConfig.getDouble("border_size"));
     }
 
     private void posesIsNullWarn() {

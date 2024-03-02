@@ -72,4 +72,20 @@ public class MainConfig extends BaseConfig<Map<String, Object>> {
             throw new RuntimeException(e);
         }
     }
+
+    public String getString(String key) {
+        return (String) getOrThrow(key);
+    }
+
+    public boolean getBool(String key) {
+        return (boolean) getOrThrow(key);
+    }
+
+    public int getInt(String key) {
+        return ((Double) getOrThrow(key)).intValue();
+    }
+
+    public double getDouble(String key) {
+        return (double) getOrThrow(key);
+    }
 }
