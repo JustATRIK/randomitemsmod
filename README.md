@@ -1,2 +1,2 @@
 Random items mod. Currently in closed Alphas testing.
-Develpoing by Lonors and me
+Develpoing by me. Testing by Lonors
