@@ -89,7 +89,7 @@ public class GameManager {
         if (cleanInventories) {
             RandomItemsMod.getLogger().info("Cleaning inventories");
             ServerLifecycleHooks.getCurrentServer().getPlayerList().getPlayers().forEach(serverPlayer -> {
-                if (mainConfig.getBool("clean_inventories")) serverPlayer.getInventory().clearContent();
+                if (mainConfig.getBool("clear_inventories")) serverPlayer.getInventory().clearContent();
                 if (mainConfig.getBool("remove_effects")) serverPlayer.removeAllEffects();
 
                 if (mainConfig.getBool("reset_health")) serverPlayer.setHealth(serverPlayer.getMaxHealth());
