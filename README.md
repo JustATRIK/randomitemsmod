@@ -11,7 +11,7 @@ But if you want to set up game to your own settings you can use following docume
 If you want to suggest an idea, post it on issues with following tag! I'll be very grateful for any your ideas!\
 \
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/JustATRIK/randomitemsmod/blob/master/LICENSE)\
-[![Developer YouTube channel](https://img.shields.io/youtube/channel/subscribers/UCUV4I1AcYy1epjPgVKvIPgw)](https://github.com/JustATRIK/randomitemsmod/blob/master/LICENSE)
+[![Developer YouTube channel](https://img.shields.io/youtube/channel/subscribers/UCUV4I1AcYy1epjPgVKvIPgw)](https://www.youtube.com/channel/UCUV4I1AcYy1epjPgVKvIPgw)
 
 ## Mod download
 Currently mod available only on Modrinth!
