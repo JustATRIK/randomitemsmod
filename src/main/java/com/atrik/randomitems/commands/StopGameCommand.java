@@ -6,6 +6,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.network.chat.Component;
 
 public class StopGameCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
@@ -15,8 +16,16 @@ public class StopGameCommand {
     }
 
     private static int execute(CommandContext<CommandSourceStack> ctx) {
-        RandomItemsMod.getLogger().info("Issued command stop");
-        GameManager.getGameManager().stopGame(null);
+        try {
+            GameManager.getGameManager().stopGame(null);
+        } catch (Exception e) {
+            ctx.getSource().sendFailure(Component.translatable("commands.ri_stop.failure"));
+            RandomItemsMod.getLogger().severe("Failed to stop game!");
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        ctx.getSource().sendSuccess(() -> Component.translatable("commands.ri_stop.success"), true);
+
         return 1;
     }
 }

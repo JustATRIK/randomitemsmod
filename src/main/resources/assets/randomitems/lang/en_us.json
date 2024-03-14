@@ -1,9 +1,31 @@
 {
   "ri.boss_bar.name": "§aRandom item in %s",
-  "ri.message.winner_is": "§aThe game is over! Winner is %s",
+  "ri.message.winner_is": "§aThe game is over! The winner is %s",
   "ri.message.winner_is_title": "§ais a legend!",
   "ri.message.player_died": "%s§4 just died!",
   "ri.message.ended_by_admin": "§4The game was interrupted by the admin!",
-  "ri.message.left_players": "§eOnly %s §eplayers left!",
-  "ri.message.no_spawns": "§c§lLook like you don't add spawns! Please set spawns by using §a§l/add_spawn§c§l to avoid bugs!"
+  "ri.message.left_players": "§eOnly %s §eplayers are left!",
+  "ri.message.no_spawns": "§c§lIt looks like you don't add spawns! Please set spawns by using §a§l/add_spawn§c§l to avoid bugs!",
+
+  "commands.add_banned_item.success": "Successfully added %s item to banned",
+  "commands.add_banned_item.failure": "Failed to add item to banned",
+
+  "commands.add_spawn.success": "Successfully added %s spawn",
+  "commands.add_spawn.failure": "Failed to add spawn",
+  "commands.remove_spawn.success": "Successfully removed %s spawn",
+  "commands.remove_spawn.failure": "Failed to remove spawn",
+  "commands.remove_all_spawns.success": "Successfully removed all spawns",
+  "commands.remove_all_spawns.failure": "Failed to remove all spawns",
+
+  "commands.increase_default_time.success": "Successfully increased default delay by %s. Now the default delay is %s",
+  "commands.increase_default_time.failure": "Failed to increase default delay",
+  "commands.decrease_default_time.success": "Successfully decreased default delay by %s. Now the default delay is %s",
+  "commands.decrease_default_time.failure": "Failed to decrease default delay",
+  "commands.set_default_time.success": "Successfully set the default delay to %s",
+  "commands.set_default_time.failure": "Failed to set default delay",
+
+  "commands.ri_start.success": "Successfully started the game",
+  "commands.ri_start.failure": "Failed to start the game",
+  "commands.ri_stop.success": "Successfully stopped the game",
+  "commands.ri_stop.failure": "Failed to stop the game"
 }

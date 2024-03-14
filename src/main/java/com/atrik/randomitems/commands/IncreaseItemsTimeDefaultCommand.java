@@ -7,6 +7,7 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.network.chat.Component;
 
 public class IncreaseItemsTimeDefaultCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
@@ -21,7 +22,14 @@ public class IncreaseItemsTimeDefaultCommand {
     private static int execute(CommandContext<CommandSourceStack> ctx, int time) {
         RandomItemsMod.getLogger().info("Issued command set def items time");
         double newTime = ((double) time) + GameManager.getGameManager().mainConfig.getDouble("default_items_time");
-        GameManager.getGameManager().mainConfig.set("default_items_time", newTime);
+        try {
+            GameManager.getGameManager().mainConfig.set("default_items_time", newTime);
+        } catch (Exception e) {
+            ctx.getSource().sendFailure(Component.translatable("commands.increase_default_time.failure"));
+            RandomItemsMod.getLogger().severe("Failed to decrease def delay!");
+            e.printStackTrace();
+        }
+        ctx.getSource().sendSuccess(() -> Component.translatable("commands.increase_default_time.success", time, newTime), true);
         return ((Double) newTime).intValue();
     }
 }

@@ -7,6 +7,7 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.network.chat.Component;
 
 public class StartGameCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
@@ -21,8 +22,16 @@ public class StartGameCommand {
     }
 
     private static int execute(CommandContext<CommandSourceStack> ctx, int time, boolean cleanInventories) {
-        RandomItemsMod.getLogger().info("Issued command start");
-        GameManager.getGameManager().startGame(time, cleanInventories, ctx.getSource().getLevel());
+        try {
+            GameManager.getGameManager().startGame(time, cleanInventories, ctx.getSource().getLevel());
+        } catch (Exception e) {
+            ctx.getSource().sendFailure(Component.translatable("commands.ri_start.failure"));
+            RandomItemsMod.getLogger().severe("Failed to start game!");
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        ctx.getSource().sendSuccess(() -> Component.translatable("commands.ri_start.success"), true);
+
         return 1;
     }
 }

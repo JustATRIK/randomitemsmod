@@ -3,9 +3,11 @@ package com.atrik.randomitems;
 import com.atrik.randomitems.commands.*;
 import com.atrik.randomitems.config.ModConfigHolder;
 import com.atrik.randomitems.game.GameInstance;
+import com.atrik.randomitems.game.GameManager;
 import com.atrik.randomitems.network.ModPacketHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.event.server.ServerStartedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -21,7 +23,6 @@ public class RandomItemsMod {
         logger = Logger.getLogger(MODID);
 
         MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.register(GameInstance.class);
 
         ModConfigHolder.onModSetup();
 
@@ -46,6 +47,11 @@ public class RandomItemsMod {
         SetItemsTimeDefaultCommand.register(event.getDispatcher());
         DecreaseItemsTimeDefaultCommand.register(event.getDispatcher());
         IncreaseItemsTimeDefaultCommand.register(event.getDispatcher());
+    }
+
+    @SubscribeEvent
+    public static void onServerStarted(final ServerStartedEvent event) {
+        GameManager.getGameManager();
     }
 
     public static Logger getLogger() {

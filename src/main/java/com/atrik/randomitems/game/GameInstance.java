@@ -90,7 +90,7 @@ public class GameInstance {
 
     int ticker = 0;
     @SubscribeEvent
-    public void serverTick(TickEvent.ServerTickEvent event) {
+    public void serverTick(final TickEvent.ServerTickEvent event) {
         if (event.phase.equals(TickEvent.Phase.END)) return;
         bossBar.setProgress(1.0f - (100f / itemsTime * ++ticker) / 100f);
         bossBar.setName(Component.translatable("ri.boss_bar.name", Component.literal("§a" + ((itemsTime - ticker) / 20 + 1))));
@@ -105,7 +105,7 @@ public class GameInstance {
     }
 
     @SubscribeEvent
-    public void onEntityDeath(LivingDeathEvent event) {
+    public void onEntityDeath(final LivingDeathEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) {
             if (!livingPlayers.contains(player)) return;
 
@@ -121,7 +121,7 @@ public class GameInstance {
     }
 
     @SubscribeEvent
-    public void onPlayerLogging(PlayerEvent.PlayerLoggedInEvent event) {
+    public void onPlayerLogging(final PlayerEvent.PlayerLoggedInEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) {
             player.setGameMode(GameType.SPECTATOR);
             bossBar.addPlayer(player);
@@ -129,7 +129,7 @@ public class GameInstance {
     }
 
     @SubscribeEvent
-    public void onPlayerLeft(PlayerEvent.PlayerLoggedOutEvent event) {
+    public void onPlayerLeft(final PlayerEvent.PlayerLoggedOutEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) {
             if (!livingPlayers.contains(player)) return;
 
@@ -138,7 +138,7 @@ public class GameInstance {
     }
 
     @SubscribeEvent
-    public void onServerStopping(ServerStoppingEvent event) {
+    public void onServerStopping(final ServerStoppingEvent event) {
         GameManager.getGameManager().stopGame(null);
     }
 
