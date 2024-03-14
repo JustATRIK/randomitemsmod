@@ -13,5 +13,5 @@ But if you want to set up game to your own settings you can use following docume
 ## Mod download
 Currently mod available only on Modrinth!
 <!-- SVG version -->
-<img alt="modrinth" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/modrinth_vector.svg">(https://modrinth.com/project/random-items-mod)
+[<img alt="modrinth" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/modrinth_vector.svg">](https://modrinth.com/project/random-items-mod)
 
