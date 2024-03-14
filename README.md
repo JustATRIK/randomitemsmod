@@ -1,6 +1,6 @@
 # Random Items Mod
 
-## Generel info
+## General info
 **WARNING! MOD IS CURRENTLY IN ALPHA TESTING!**\
 RIM is a simple mod that allows you to play **random items minigame** or even **create your own!**\
 Random items minigame is a game where you get random items **every n ticks/seconds** and the last standing wins!\
