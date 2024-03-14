@@ -1,5 +1,7 @@
 # Random Items Mod
 
+![RIM Logo](https://cdn.modrinth.com/data/cached_images/c56c05f6143aa8b573ccfbb4715b75e4abdefccd.png)
+
 ## General info
 **WARNING! MOD IS CURRENTLY IN ALPHA TESTING!**\
 RIM is a simple mod that allows you to play **random items minigame** or even **create your own!**\
