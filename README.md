@@ -16,9 +16,10 @@ If you want to suggest an idea, post it on [issues](https://github.com/JustATRIK
 [![Developer YouTube channel](https://img.shields.io/youtube/channel/subscribers/UCUV4I1AcYy1epjPgVKvIPgw)](https://www.youtube.com/channel/UCUV4I1AcYy1epjPgVKvIPgw)
 
 ## Mod download
-Currently mod available only on Modrinth!
+Currently mod available only on Modrinth and Curseforge!
 <!-- SVG version -->
 [<img alt="modrinth" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/modrinth_vector.svg">](https://modrinth.com/project/random-items-mod)
+[<img alt="curseforge" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/curseforge_vector.svg">](https://legacy.curseforge.com/minecraft/mc-mods/random-items-minigame)
 
 ## Authors
 
